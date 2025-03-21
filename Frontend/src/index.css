@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.bdr {
+    border: 2px solid red;
+}
