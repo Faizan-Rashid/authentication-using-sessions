@@ -6,7 +6,9 @@ import Register from "./pages/Register.tsx";
 import VerifyEmail from "./pages/VerifyEmail.tsx";
 import ForgotPassword from "./pages/ForgotPassword.tsx";
 import ResetPassword from "./pages/ResetPassword.tsx";
-import Protected from "./components/Protected.tsx";
+import AppContainer from "./components/AppContainer.tsx";
+import Profile from "./pages/Profile.tsx";
+import Settings from "./pages/Settings.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,12 +16,23 @@ const router = createBrowserRouter([
     element: <App />,
     children: [
       {
-        path: "protected-route",
-        element: <Protected />,
+        path: "/protected-route",
+        element: <AppContainer />,
         children: [
+          // {
+          //   path: "/protected-route",
+          //   element: null,
+          //   children: [
           {
-            path: "/",
+            path: "/protected-route/profile",
+            element: <Profile />,
           },
+          {
+            path: "/protected-route/settings",
+            element: <Settings />,
+          },
+          //   ],
+          // },
         ],
       },
       {

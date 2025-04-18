@@ -21,8 +21,8 @@ authRoutes.get("/refresh", refreshHandler);
 
 authRoutes.get("/email/verify/:code", verifyEmailHandler);
 
-authRoutes.post("/password/forgot",sendPasswordResetEmailHandler)
+authRoutes.post("/password/forgot", sendPasswordResetEmailHandler);
 
-authRoutes.post("/password/reset",resetPasswordHandler)
+authRoutes.post("/password/reset", resetPasswordHandler);
 
 export default authRoutes;

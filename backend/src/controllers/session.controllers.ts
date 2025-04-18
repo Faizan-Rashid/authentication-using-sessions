@@ -39,10 +39,12 @@ export const deleteSessionHandler = catchErrors(async (req, res, next) => {
     _id: sessionId,
     userId: req.userId,
   });
+
   console.log(deletedSession);
+  
   appAssert(deletedSession, NOT_FOUND, "Session not found");
 
-  res.status(OK).json({
+  return res.status(OK).json({
     message: "session deleted successfully",
   });
 });

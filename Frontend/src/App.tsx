@@ -1,9 +1,12 @@
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
+import { setNavigate } from "./lib/navigate";
 
 function App() {
+  const navigate = useNavigate();
+  setNavigate(navigate);
+
   return (
     <>
-    <Link to={"/register"}>register</Link>
       <Outlet />
     </>
   );

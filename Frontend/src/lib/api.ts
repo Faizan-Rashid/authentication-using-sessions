@@ -6,8 +6,10 @@ type LoginParams = {
 };
 export const login = async (data: LoginParams) =>
   await API.post(`/api/v1/auth/login`, data);
+export const logout = async () => await API.get("/api/v1/auth/login");
 
 type RegisterParams = LoginParams & { confirmPassword: string };
+
 export const register = async (data: RegisterParams) =>
   await API.post("/api/v1/auth/register", data);
 
@@ -21,7 +23,13 @@ type ResetPasswordParams = {
   verificationCode: string;
   password: string;
 };
+
 export const resetPassword = async (data: ResetPasswordParams) =>
   await API.post("/api/v1/auth/password/reset", data);
 
 export const getUser = async () => await API.get(`/api/v1/user`);
+
+export const getSessions = async () => await API.get("/api/v1/session");
+
+export const deleteSession = async (id: string) =>
+  await API.delete(`/api/v1/session/${id}`);

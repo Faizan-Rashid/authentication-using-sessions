@@ -2,6 +2,7 @@ import { Button, CircularProgress, TextField } from "@mui/material";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import { login } from "../lib/api";
 
@@ -10,6 +11,9 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const redirectUrl = location.state?.redirectUrl || "/";
 
   const {
     mutate: signIn,
@@ -18,8 +22,7 @@ const Login = () => {
   } = useMutation({
     mutationFn: login,
     onSuccess: () => {
-      console.log(`success`);
-      navigate("/", {
+      navigate(redirectUrl, {
         replace: true,
       });
     },
